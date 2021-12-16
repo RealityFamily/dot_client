@@ -1,4 +1,4 @@
-import 'package:dot_client/widget/pages/auth_page.dart';
+import 'package:dot_client/widget/pages/tab_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -10,11 +10,14 @@ class SplashPage extends StatelessWidget {
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        Navigator.of(context).pushReplacementNamed(AuthPage.route);
+        Navigator.of(context).pushReplacementNamed(
+          TabPage.route,
+          arguments: 1,
+        );
       },
     );
 
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: CircleAvatar(
           radius: 40,

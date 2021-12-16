@@ -1,6 +1,7 @@
 import 'package:dot_client/widget/pages/auth_page.dart';
 import 'package:dot_client/widget/pages/register_page.dart';
 import 'package:dot_client/widget/pages/splash_page.dart';
+import 'package:dot_client/widget/pages/tab_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => const SplashPage(),
         AuthPage.route: (context) => const AuthPage(),
-        RegisterPage.route: (context) => RegisterPage(),
+        RegisterPage.route: (context) => const RegisterPage(),
+        TabPage.route: (context) => const TabPage(),
       },
     );
   }
