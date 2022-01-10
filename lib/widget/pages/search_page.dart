@@ -1,3 +1,4 @@
+import 'package:dot_client/widget/pages/found_dots_page.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatefulWidget {
@@ -22,7 +23,15 @@ class _SearchPageState extends State<SearchPage> {
         borderRadius: BorderRadius.circular(10.0),
       ),
       context: context,
-      builder: (context) => Container(),
+      builder: (context) => DraggableScrollableSheet(
+        initialChildSize: 0.9,
+        maxChildSize: 0.95,
+        minChildSize: 0.2,
+        builder: (context, scrollController) => SingleChildScrollView(
+          controller: scrollController,
+          child: const FoundDotsPage(),
+        ),
+      ),
     );
   }
 

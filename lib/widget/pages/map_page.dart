@@ -5,14 +5,9 @@ import 'package:dot_client/widget/elements/map_param.dart';
 import 'package:dot_client/widget/pages/search_page.dart';
 import 'package:flutter/material.dart';
 
-class MapPage extends StatefulWidget {
+class MapPage extends StatelessWidget {
   const MapPage({Key? key}) : super(key: key);
 
-  @override
-  _MapPageState createState() => _MapPageState();
-}
-
-class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Stack(
