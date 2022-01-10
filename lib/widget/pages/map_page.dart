@@ -1,3 +1,8 @@
+import 'dart:math';
+
+import 'package:dot_client/widget/elements/map_control.dart';
+import 'package:dot_client/widget/elements/map_param.dart';
+import 'package:dot_client/widget/pages/search_page.dart';
 import 'package:flutter/material.dart';
 
 class MapPage extends StatefulWidget {
@@ -16,26 +21,38 @@ class _MapPageState extends State<MapPage> {
           color: Colors.lightBlue,
         ),
         Positioned(
-          top: MediaQuery.of(context).padding.top + 10,
+          top: MediaQuery.of(context).viewPadding.top + 10,
           left: 15,
           right: 15,
-          child: Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-              vertical: 5,
-            ),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Row(
-              children: const [
-                Icon(Icons.search),
-                SizedBox(width: 10),
-                Text("Введите название"),
-              ],
+          child: GestureDetector(
+            onTap: () {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                backgroundColor: Colors.transparent,
+                context: context,
+                builder: (_) => SearchPage(
+                  topMargin: MediaQuery.of(context).padding.top,
+                ),
+              );
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 5,
+              ),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Row(
+                children: const [
+                  Icon(Icons.search),
+                  SizedBox(width: 10),
+                  Text("Введите название"),
+                ],
+              ),
             ),
           ),
         ),
@@ -47,23 +64,42 @@ class _MapPageState extends State<MapPage> {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 5,
-            itemBuilder: (context, index) => Container(
-              margin: const EdgeInsets.symmetric(
-                horizontal: 5,
-              ),
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: index % 2 == 0 ? Colors.red : Colors.green,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              alignment: Alignment.center,
-              child: Text("Параметр $index"),
+            itemBuilder: (context, index) => MapParam(
+              name: index.toString(),
+              additional: Random().nextBool(),
             ),
           ),
         ),
         Positioned(
+          right: 15,
+          top: MediaQuery.of(context).viewPadding.top + 60,
+          bottom: MediaQuery.of(context).padding.bottom + 60,
+          width: 40,
           child: Column(
-            children: [],
+            children: [
+              MapControl(
+                content: const Icon(Icons.menu),
+                onPressed: () {},
+              ),
+              Expanded(
+                child: Container(),
+              ),
+              MapControl(
+                content: const Icon(Icons.add),
+                onPressed: () {},
+              ),
+              MapControl(
+                content: const Icon(Icons.remove),
+                onPressed: () {},
+              ),
+              Expanded(
+                child: Container(),
+              ),
+              MapControl(
+                content: const Icon(Icons.gps_fixed),
+                onPressed: () {},
+              ),
+            ],
           ),
         ),
       ],

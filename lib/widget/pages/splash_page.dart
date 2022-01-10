@@ -1,4 +1,4 @@
-import 'package:dot_client/widget/pages/tab_page.dart';
+import 'package:dot_client/widget/pages/auth_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -11,8 +11,7 @@ class SplashPage extends StatelessWidget {
       const Duration(seconds: 2),
       () {
         Navigator.of(context).pushReplacementNamed(
-          TabPage.route,
-          arguments: 1,
+          AuthPage.route,
         );
       },
     );

@@ -1,3 +1,4 @@
+import 'package:dot_client/widget/pages/appointments_page.dart';
 import 'package:dot_client/widget/pages/map_page.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,7 @@ class _TabPageState extends State<TabPage> {
   int? _selectedPage;
   final _pages = [
     const MapPage(),
+    const AppointmentsPage(),
   ];
 
   @override

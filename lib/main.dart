@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -24,6 +25,12 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
+        ),
+        inputDecorationTheme: const InputDecorationTheme(
+          isDense: true,
+          border: OutlineInputBorder(),
+          fillColor: Colors.white,
+          filled: true,
         ),
       ),
       routes: {
